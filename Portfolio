@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero theme-home">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Discover my projects, skills, and background.</p>
+        </section>
+        <section class="intro theme-home">
+            <h2>Introduction</h2>
+            <p>Hi, I'm Akshay Gadade, a passionate Frontend developer with experience in creating dynamic and responsive web applications.</p>
+        </section>
+        <section class="latest-projects theme-home">
+            <h2>Latest Projects</h2>
+            <p>Check out some of my recent work:</p>
+            <!-- Add project previews here -->
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS for About Me Section */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flip-card-front {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .flip-card-back {
+            background-color: #d1d5db;
+            transform: rotateY(180deg);
+            color: #1e3a8a;
+        }
+        /* Timeline CSS */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #1e3a8a;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #1e3a8a;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">About Me</h1>
+            <nav>
+                <a href="index.html" class="text-white">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Interactive About Section -->
+    <section id="about" class="container mx-auto my-12 p-4">
+        <h2 class="text-3xl font-bold mb-4 text-center">About Me</h2>
+        <div class="flex justify-center items-center space-x-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3 class="text-xl font-bold">Hello!</h3>
+                        <p>I'm a Frontend Developer with a passion for coding.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3 class="text-xl font-bold">More About Me</h3>
+                        <p>I have 1 year of experience in Frontend development and love solving complex problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline mt-8">
+            <div class="container left">
+                <div class="content">
+                    <h3>2022</h3>
+                    <p>Started learning Java and developed my first application.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h3>2023</h3>
+                    <p>Pursuing my degree in Data Science and started working as a Frontend Developer.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h3>2024</h3>
+                    <p>Joined my current company and started working on complex projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Contact Me</h1>
+            <nav>
+                <a href="index.html" class="text-white">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Creative Contact Section -->
+    <section id="contact" class="bg-blue-600 text-white py-12">
+        <div class="container mx-auto p-4">
+            <h2 class="text-3xl font-bold mb-4 text-center">Get In Touch</h2>
+            <p class="text-center mb-8">
+                I'd love to hear from you! Whether you have a question or just want to say hi, feel free to drop a message.
+            </p>
+            <form id="contact-form" class="max-w-lg mx-auto bg-white text-gray-800 p-8 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">Submit</button>
+            </form>
+        </div>
+        <div class="container mx-auto p-4 text-center mt-8">
+            <a href="https://facebook.com" class="mx-2 text-white hover:text-gray-200"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/akshay-gadade-713024295" class="mx-2 text-white hover:text-gray-200"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://twitter.com" class="mx-2 text-white hover:text-gray-200"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="https://instagram.com" class="mx-2 text-white hover:text-gray-200"><i class="fab fa-instagram fa-2x"></i></a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="projects theme-projects">
+            <h1>My Projects</h1>
+            <div class="project">
+                <h2>Project One</h2>
+                <p>Description of project one. This project was built using HTML, CSS, and JavaScript. It features a responsive design and dynamic content.</p>
+                <a href="https://example.com/project-one" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h2>Project Two</h2>
+                <p>Description of project two. This project was built using React and Node.js. It includes a RESTful API and a modern front-end interface.</p>
+                <a href="https://example.com/project-two" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h2>Project Three</h2>
+                <p>Description of project three. This project was built using Python and Django. It has a robust backend and a user-friendly interface.</p>
+                <a href="https://example.com/project-three" target="_blank">View Project</a>
+            </div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').split('.')[0];
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form validation
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (name === '' || email === '' || message === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        alert('Message sent successfully!');
+        form.reset();
+    });
+
+    // Email validation function
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+});
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        
+        .skill-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .skill-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+        }
+        .skill-card p {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">My Skills</h1>
+            <nav>
+                <a href="index.html" class="text-white">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Creative Skills Section -->
+    <section id="skills" class="bg-gray-200 py-12">
+        <div class="container mx-auto p-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <p>Proficient in building applications using Java.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Spring Boot</h3>
+                    <p>Experienced in creating microservices with Spring Boot.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>HTML & CSS</h3>
+                    <p>Skilled in designing responsive web pages.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Capable of developing dynamic front-end applications.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>SQL</h3>
+                    <p>Adept at writing and optimizing SQL queries.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Git</h3>
+                    <p>Proficient in version control with Git.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #284df6;
+}
+
+header {
+    background-color: #134aee;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.hero {
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro, .latest-projects, .about-me, .skills, .contact {
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* Themes */
+.theme-home {
+    background-color: #e3f2fd;
+    color: #769fd9;
+}
+
+.theme-about {
+    background-color: #fce4ec;
+    color: #d81b60;
+}
+
+.theme-skills {
+    background-color: #e8f5e9;
+    color: #43a047;
+}
+
+.theme-contact {
+    background-color: #f3e5f5;
+    color: #657bae;
+}
+
+/* Skills List */
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    background-color: #e1bee7;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #8e24aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form button:hover {
+    background-color: #9c27b0;
+}
+/* Add this to the existing styles.css file */
+
+/* Projects Theme */
+.theme-projects {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+/* Project Cards */
+.project {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project h2 {
+    color: #00796b;
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    color: #666;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #00796b;
+    text-decoration: none;
+    border: 1px solid #00796b;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project a:hover {
+    background-color: #00796b;
+    color: #fff;
+}
